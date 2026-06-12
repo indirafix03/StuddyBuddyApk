@@ -48,7 +48,7 @@ public class HomeFragment extends Fragment {
     private TugasModel nearestTask = null;
 
     private TextView tvWelcome, tvNearestTask, tvDaysLeft, tvProgressPercent, tvCurrentDate;
-    private TextView tvUrgent, tvThisWeek, tvIncomplete, tvAiQuote, btnRetryHome;
+    private TextView tvUrgent, tvThisWeek, tvIncomplete, tvAiQuote, btnRetryHome, tvTotalTasksCount;
     private ImageView btnDetailNearest;
     private FloatingActionButton fabAdd;
     private LinearProgressIndicator progressIndicatorOverall;
@@ -67,7 +67,6 @@ public class HomeFragment extends Fragment {
         setupRecyclerView();
         setCurrentDate();
 
-        // Saat swipe down, kita set forceRefresh ke true
         swipeRefreshHome.setOnRefreshListener(() -> refreshAllData(true));
         btnRetryHome.setOnClickListener(v -> fetchAiQuote(true));
 
@@ -86,7 +85,6 @@ public class HomeFragment extends Fragment {
             });
         }
 
-        // Saat pertama kali buka (onStart), jangan paksa refresh AI (pakai cache)
         refreshAllData(false);
         return view;
     }
@@ -100,6 +98,7 @@ public class HomeFragment extends Fragment {
         tvUrgent = v.findViewById(R.id.tvUrgentCount);
         tvThisWeek = v.findViewById(R.id.tvWeekDeadlineCount);
         tvIncomplete = v.findViewById(R.id.tvIncompleteCount);
+        tvTotalTasksCount = v.findViewById(R.id.tvTotalTasksCount);
         tvCurrentDate = v.findViewById(R.id.tvCurrentDate);
         tvAiQuote = v.findViewById(R.id.tvAiQuote);
         btnRetryHome = v.findViewById(R.id.btnRetryHome);
@@ -127,17 +126,13 @@ public class HomeFragment extends Fragment {
         SharedPreferences pref = getActivity().getSharedPreferences("StuddyBuddyPrefs", Context.MODE_PRIVATE);
         String cachedQuote = pref.getString("last_ai_quote", "Menunggu kutipan hari ini...");
 
-        // Tampilkan data dari cache dulu agar UI tidak kosong
         tvAiQuote.setText(cachedQuote);
 
-        // LOGIKA BARU:
-        // Jika bukan refresh manual (forceRefresh = false), jangan panggil API, cukup gunakan cache.
         if (!forceRefresh) {
             checkFinishRefreshing();
             return;
         }
 
-        // Cek koneksi internet saat refresh manual
         if (!NetworkUtils.isNetworkAvailable(getContext())) {
             Toast.makeText(getContext(), "Gagal memperbarui kutipan. Periksa koneksi internet Anda.", Toast.LENGTH_SHORT).show();
             btnRetryHome.setVisibility(View.VISIBLE);
@@ -157,7 +152,6 @@ public class HomeFragment extends Fragment {
                             String quote = response.body().getResponseText();
                             tvAiQuote.setText(quote);
 
-                            // Simpan ke Cache
                             SharedPreferences.Editor editor = pref.edit();
                             editor.putString("last_ai_quote", quote);
                             editor.apply();
@@ -195,7 +189,10 @@ public class HomeFragment extends Fragment {
         if (rvTasks != null) {
             rvTasks.setLayoutManager(new LinearLayoutManager(getContext()));
             adapter = new TugasAdapter(tugasList, getContext());
-            adapter.setOnTaskChangeListener(() -> calculateStats(tugasList));
+            adapter.setOnTaskChangeListener(() -> {
+                // Refresh data when task changes to update overall progress and counts
+                loadData();
+            });
             rvTasks.setAdapter(adapter);
         }
     }
@@ -243,7 +240,6 @@ public class HomeFragment extends Fragment {
                     if (diff >= 0 && diff < 3) urgent++;
                     if (diff >= 0 && diff <= 6) thisWeek++;
                     
-                    // Logika Baru: Hanya pilih tugas yang progresnya < 100% untuk Deadline Terdekat
                     if (t.getProgress() < 100 && diff >= 0 && diff < minDiff) {
                         minDiff = diff;
                         nearestTask = t;
@@ -257,6 +253,7 @@ public class HomeFragment extends Fragment {
         if (tvUrgent != null) tvUrgent.setText(String.valueOf(urgent));
         if (tvIncomplete != null) tvIncomplete.setText(String.valueOf(incomplete));
         if (tvThisWeek != null) tvThisWeek.setText(String.valueOf(thisWeek));
+        if (tvTotalTasksCount != null) tvTotalTasksCount.setText("(" + tasks.size() + ")");
 
         if (nearestTask != null) {
             if (tvNearestTask != null) tvNearestTask.setText(nearestTask.getNamaTugas().toUpperCase());

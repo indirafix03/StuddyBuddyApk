@@ -19,4 +19,11 @@
     <color name="deadline_label">#fa003f</color>
     <color name="gray_light">#E0E0E0</color>
     <color name="gray_track">#808080</color>
+
+    <!-- Auth Colors (Light) -->
+    <color name="auth_bg">#2C3E6B</color>
+    <color name="auth_card_bg">#FFFFFF</color>
+    <color name="auth_text_on_bg">#FFFFFF</color>
+    <color name="auth_text_on_card">#2C3E6B</color>
+    <color name="auth_text_secondary_on_card">#666666</color>
 </resources>

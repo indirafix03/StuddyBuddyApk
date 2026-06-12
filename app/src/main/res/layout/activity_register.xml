@@ -4,161 +4,171 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/main"
-    android:background="@color/primary_brand">
+    android:background="@color/auth_bg">
 
     <ImageView
         android:id="@+id/img_study_buddy"
-        android:layout_width="286dp"
-        android:layout_height="218dp"
+        android:layout_width="386dp"
+        android:layout_height="318dp"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="116dp"
-        android:layout_marginTop="110dp"
-        android:src="@drawable/logo_studdy_buddy"
-        android:contentDescription="StuddyBuddy Logo" />
+        android:layout_marginTop="70dp"
+        android:layout_marginStart="120dp"
+        android:contentDescription="StuddyBuddy Logo"
+        android:src="@drawable/logo_trans" />
 
     <ImageView
         android:id="@+id/img_vector_bg"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
+        android:layout_height="620dp"
         android:layout_marginTop="300dp"
-        android:layout_marginEnd="0dp"
-        android:layout_marginBottom="0dp"
-        android:contentDescription="Background Vector"
+        android:contentDescription="Vector Background"
+        android:scaleType="fitXY"
         android:src="@drawable/vektor1" />
 
     <TextView
         android:id="@+id/tv_register_title"
-        android:layout_width="278dp"
-        android:layout_height="56dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="-35dp"
-        android:layout_marginTop="396dp"
-        android:gravity="center"
+        android:layout_marginStart="11dp"
+        android:layout_marginTop="380dp"
         android:text="REGISTER"
-        android:textColor="@color/text_primary"
-        android:textSize="40sp"
+        android:textColor="@color/auth_text_on_card"
+        android:textSize="30sp"
         android:textStyle="bold" />
 
     <RelativeLayout
         android:id="@+id/container_email"
-        android:layout_width="345dp"
-        android:layout_height="54dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="22dp"
-        android:layout_marginTop="490dp">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="22dp"
+        android:layout_marginTop="450dp">
 
         <TextView
-            android:layout_width="73dp"
-            android:layout_height="19dp"
+            android:id="@+id/tv_label_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="Email"
-            android:textColor="@color/text_secondary"
+            android:textColor="@color/auth_text_secondary_on_card"
             android:textSize="16sp" />
 
-        <ImageView
-            android:layout_width="19dp"
-            android:layout_height="19dp"
-            android:layout_marginTop="31dp"
-            android:src="@drawable/img_email"
-            app:tint="@color/text_primary"/>
+        <RelativeLayout
+            android:id="@+id/row_input_email"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_below="@id/tv_label_email"
+            android:layout_marginTop="4dp">
+
+            <ImageView
+                android:id="@+id/iv_email_icon"
+                android:layout_width="19dp"
+                android:layout_height="19dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/img_email"
+                app:tint="@color/auth_text_on_card"/>
+
+            <View
+                android:id="@+id/divider_email"
+                android:layout_width="1dp"
+                android:layout_height="20dp"
+                android:layout_toEndOf="@id/iv_email_icon"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="8dp"
+                android:background="@color/auth_text_on_card" />
+
+            <EditText
+                android:id="@+id/et_email"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_toEndOf="@id/divider_email"
+                android:layout_marginStart="9dp"
+                android:background="@null"
+                android:hint="example: indira@gmail.com"
+                android:inputType="textEmailAddress"
+                android:textColor="@color/auth_text_on_card"
+                android:textColorHint="@color/auth_text_secondary_on_card"
+                android:textSize="14sp" />
+        </RelativeLayout>
 
         <View
-            android:layout_width="1dp"
-            android:layout_height="15dp"
-            android:layout_marginStart="29dp"
-            android:layout_marginTop="33dp"
-            android:background="@color/text_primary" />
-
-        <EditText
-            android:id="@+id/et_email"
-            android:layout_width="245dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="36dp"
-            android:layout_marginTop="32dp"
-            android:background="@null"
-            android:hint="example: indira@gmail.com"
-            android:textColorHint="@color/text_secondary"
-            android:textColor="@color/text_primary"
-            android:textSize="11sp"
-            android:inputType="textEmailAddress" />
-
-        <View
-            android:layout_width="345dp"
+            android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_marginTop="53dp"
-            android:background="@color/text_primary" />
+            android:layout_below="@id/row_input_email"
+            android:layout_marginTop="4dp"
+            android:background="@color/auth_text_on_card" />
     </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/container_password"
-        android:layout_width="345dp"
-        android:layout_height="54dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="22dp"
-        android:layout_marginTop="564dp">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="22dp"
+        android:layout_marginTop="530dp">
 
         <TextView
-            android:layout_width="73dp"
-            android:layout_height="19dp"
+            android:id="@+id/tv_label_password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="Password"
-            android:textColor="@color/text_secondary"
+            android:textColor="@color/auth_text_secondary_on_card"
             android:textSize="16sp" />
 
-        <ImageView
-            android:layout_width="19dp"
-            android:layout_height="19dp"
-            android:layout_marginTop="31dp"
-            android:src="@drawable/img_password"
-            app:tint="@color/text_primary"/>
+        <RelativeLayout
+            android:id="@+id/row_input_password"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_below="@id/tv_label_password"
+            android:layout_marginTop="4dp">
+
+            <ImageView
+                android:id="@+id/iv_password_icon"
+                android:layout_width="19dp"
+                android:layout_height="19dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/img_password"
+                app:tint="@color/auth_text_on_card"/>
+
+            <View
+                android:id="@+id/divider_password"
+                android:layout_width="1dp"
+                android:layout_height="20dp"
+                android:layout_toEndOf="@id/iv_password_icon"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="8dp"
+                android:background="@color/auth_text_on_card" />
+
+            <EditText
+                android:id="@+id/et_password"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_toEndOf="@id/divider_password"
+                android:layout_marginStart="8dp"
+                android:background="@null"
+                android:hint="enter your password"
+                android:textColorHint="@color/auth_text_secondary_on_card"
+                android:textColor="@color/auth_text_on_card"
+                android:textSize="14sp"
+                android:inputType="textPassword" />
+        </RelativeLayout>
 
         <View
-            android:layout_width="1dp"
-            android:layout_height="15dp"
-            android:layout_marginStart="29dp"
-            android:layout_marginTop="33dp"
-            android:background="@color/text_primary" />
-
-        <EditText
-            android:id="@+id/et_password"
-            android:layout_width="245dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="36dp"
-            android:layout_marginTop="32dp"
-            android:background="@null"
-            android:hint="enter your password"
-            android:textColorHint="@color/text_secondary"
-            android:textColor="@color/text_primary"
-            android:textSize="11sp"
-            android:inputType="textPassword" />
-
-        <View
-            android:layout_width="345dp"
+            android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_marginTop="53dp"
-            android:background="@color/text_primary" />
+            android:layout_below="@id/row_input_password"
+            android:layout_marginTop="4dp"
+            android:background="@color/auth_text_on_card" />
     </RelativeLayout>
 
     <Button
         android:id="@+id/btn_register"
-        android:layout_width="348dp"
-        android:layout_height="48dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="651dp"
-        android:layout_marginEnd="30dp"
-        android:backgroundTint="@color/surface_main"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginHorizontal="22dp"
+        android:layout_marginTop="630dp"
+        android:backgroundTint="@color/primary_brand"
         android:text="Register"
         android:textAllCaps="false"
-        android:textColor="@color/text_primary"
+        android:textColor="@color/white"
         android:textSize="16sp" />
 
     <TextView
@@ -167,9 +177,9 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/btn_register"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="20dp"
         android:text="Already have an account? Login here"
-        android:textColor="@color/white"
+        android:textColor="@color/auth_text_secondary_on_card"
         android:textSize="14sp" />
 
 </RelativeLayout>

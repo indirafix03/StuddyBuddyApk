@@ -20,12 +20,15 @@
         android:padding="16dp"
         android:orientation="horizontal">
 
-        <CheckBox
+        <com.google.android.material.checkbox.MaterialCheckBox
             android:id="@+id/cbTugas"
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:layout_marginEnd="12dp"
-            android:buttonTint="@color/primary_brand"/>
+            app:buttonTint="@color/checkbox_tint_selector"
+            app:useMaterialThemeColors="false"
+            android:background="@android:color/transparent"
+            android:checked="false" />
 
         <LinearLayout
             android:layout_width="0dp"
@@ -83,6 +86,7 @@
                 android:id="@+id/btnMore"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
+                android:layout_marginStart="8dp"
                 android:contentDescription="Options"
                 android:src="@drawable/dots"
                 app:tint="@color/text_primary" />

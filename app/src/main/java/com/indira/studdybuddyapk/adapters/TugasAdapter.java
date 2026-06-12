@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
+import android.graphics.Paint;
 import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -87,9 +88,15 @@ public class TugasAdapter extends RecyclerView.Adapter<TugasAdapter.ViewHolder> 
             holder.cardStatus.setCardBackgroundColor(ColorStateList.valueOf(Color.parseColor("#4CAF50")));
         }
 
+        // --- UPDATE UI BERDASARKAN STATUS SELESAI ---
+        updateTextStyle(holder, tugas.isCompleted());
+
+        // Set listener ke null agar setChecked tidak memicu event lama saat recycling
+        holder.cbTugas.setOnCheckedChangeListener(null);
         holder.cbTugas.setChecked(tugas.isCompleted());
 
         holder.cbTugas.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            updateTextStyle(holder, isChecked);
             executorService.execute(() -> {
                 databaseHelper.updateTaskStatusCompletely(tugas.getId(), isChecked);
                 tugas.setCompleted(isChecked);
@@ -110,14 +117,22 @@ public class TugasAdapter extends RecyclerView.Adapter<TugasAdapter.ViewHolder> 
             context.startActivity(intent);
         });
 
-        // Click listener for the new "More" button (dots icon)
         holder.btnMore.setOnClickListener(v -> showActionDialog(tugas, holder.getAdapterPosition()));
 
-        // Keep long click listener for better UX
         holder.cardTugas.setOnLongClickListener(v -> {
             showActionDialog(tugas, holder.getAdapterPosition());
             return true;
         });
+    }
+
+    private void updateTextStyle(ViewHolder holder, boolean isCompleted) {
+        if (isCompleted) {
+            holder.txtJudulTugas.setPaintFlags(holder.txtJudulTugas.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+            holder.txtJudulTugas.setAlpha(0.6f);
+        } else {
+            holder.txtJudulTugas.setPaintFlags(holder.txtJudulTugas.getPaintFlags() & (~Paint.STRIKE_THRU_TEXT_FLAG));
+            holder.txtJudulTugas.setAlpha(1.0f);
+        }
     }
 
     private void showActionDialog(TugasModel tugas, int position) {
@@ -126,7 +141,6 @@ public class TugasAdapter extends RecyclerView.Adapter<TugasAdapter.ViewHolder> 
         builder.setTitle("Select Action");
         builder.setItems(options, (dialog, which) -> {
             if (which == 0) {
-                // Edit
                 Intent intent = new Intent(context, TambahTugasActivity.class);
                 intent.putExtra("isEdit", true);
                 intent.putExtra("task_id", tugas.getId());
@@ -135,7 +149,6 @@ public class TugasAdapter extends RecyclerView.Adapter<TugasAdapter.ViewHolder> 
                 intent.putExtra("task_description", tugas.getDeskripsi());
                 context.startActivity(intent);
             } else {
-                // Delete
                 showDeleteConfirmation(tugas, position);
             }
         });
