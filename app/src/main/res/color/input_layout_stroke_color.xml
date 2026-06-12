@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- State saat ditekan/fokus -->
+    <item android:state_focused="true" android:color="@color/primary_brand" />
+    <!-- State saat di-hover -->
+    <item android:state_hovered="true" android:color="@color/primary_brand" />
+    <!-- State default: gunakan warna yang cukup kontras di dark mode -->
+    <item android:color="@color/text_secondary" />
+</selector>

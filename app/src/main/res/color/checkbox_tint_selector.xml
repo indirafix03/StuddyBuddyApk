@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Saat dicentang: Gunakan warna brand -->
+    <item android:state_checked="true" android:color="@color/primary_brand" />
+    <!-- Saat tidak dicentang: Gunakan warna abu-abu -->
+    <item android:color="@color/text_secondary" />
+</selector>
