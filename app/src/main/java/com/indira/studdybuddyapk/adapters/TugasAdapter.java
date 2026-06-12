@@ -74,7 +74,7 @@ public class TugasAdapter extends RecyclerView.Adapter<TugasAdapter.ViewHolder> 
         // --- LOGIKA HITUNG SISA HARI DINAMIS ---
         long sisaHari = hitungSisaHari(tugas.getDeadline());
 
-        if (sisaHari < 3) {
+        if (sisaHari < 4) {
             holder.txtStatusTugas.setText("Urgent");
             holder.cardStatus.setCardBackgroundColor(ColorStateList.valueOf(Color.parseColor("#FF5252")));
         } else if (sisaHari >= 3 && sisaHari <= 6) {

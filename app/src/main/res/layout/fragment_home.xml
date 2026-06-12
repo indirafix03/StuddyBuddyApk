@@ -240,14 +240,14 @@
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
 
-                <!-- Statistik Singkat -->
+                <!-- Statistik -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="8dp"
-                    android:layout_marginBottom="8dp"
                     android:paddingHorizontal="8dp"
-                    android:paddingVertical="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="4dp"
                     android:orientation="horizontal">
 
                     <com.google.android.material.card.MaterialCardView
@@ -356,6 +356,92 @@
                                 android:textSize="11sp" />
                         </LinearLayout>
                     </com.google.android.material.card.MaterialCardView>
+                </LinearLayout>
+
+                <!-- Keterangan Prioritas -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+                        <View
+                            android:layout_width="6dp"
+                            android:layout_height="6dp"
+                            android:background="#FF5252"
+                            android:layout_marginEnd="4dp"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Urgent &lt;=3d"
+                            android:textSize="9sp"
+                            android:textColor="@color/text_secondary" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+                        <View
+                            android:layout_width="6dp"
+                            android:layout_height="6dp"
+                            android:background="#FF9800"
+                            android:layout_marginEnd="4dp"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="High 3-6d"
+                            android:textSize="9sp"
+                            android:textColor="@color/text_secondary" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+                        <View
+                            android:layout_width="6dp"
+                            android:layout_height="6dp"
+                            android:background="#2196F3"
+                            android:layout_marginEnd="4dp"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Med 7-14d"
+                            android:textSize="9sp"
+                            android:textColor="@color/text_secondary" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+                        <View
+                            android:layout_width="6dp"
+                            android:layout_height="6dp"
+                            android:background="#4CAF50"
+                            android:layout_marginEnd="4dp"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Low &gt;14d"
+                            android:textSize="9sp"
+                            android:textColor="@color/text_secondary" />
+                    </LinearLayout>
                 </LinearLayout>
 
                 <!-- Daftar Tugas -->
