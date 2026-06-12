@@ -1,0 +1,25 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.StuddyBuddyApk" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+    </style>
+
+    <style name="Theme.StuddyBuddyApk" parent="Base.Theme.StuddyBuddyApk" />
+
+    <style name="Theme.StuddyBuddy_Light" parent="Theme.Material3.Light.NoActionBar" />
+    <style name="Theme.StuddyBuddy_Dark" parent="Theme.Material3.Dark.NoActionBar" />
+
+    <style name="HeaderBottomCornerStyle">
+        <item name="cornerSizeTopLeft">0dp</item>
+        <item name="cornerSizeTopRight">0dp</item>
+        <item name="cornerSizeBottomLeft">36dp</item>
+        <item name="cornerSizeBottomRight">36dp</item>
+    </style>
+
+    <style name="TopCorner36Style">
+        <item name="cornerSizeTopLeft">36dp</item>
+        <item name="cornerSizeTopRight">36dp</item>
+        <item name="cornerSizeBottomLeft">0dp</item>
+        <item name="cornerSizeBottomRight">0dp</item>
+    </style>
+</resources>

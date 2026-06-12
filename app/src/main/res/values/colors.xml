@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- Main Backgrounds -->
+    <color name="background_main">#F5F5F5</color>
+    <color name="surface_main">#FFFFFF</color>
+
+    <!-- Text Colors -->
+    <color name="text_primary">#2C3E6B</color>
+    <color name="text_secondary">#666666</color>
+    <color name="text_white">#FFFFFF</color>
+
+    <!-- Accent Colors -->
+    <color name="primary_brand">#2C3E6B</color>
+    <color name="urgent_red">#FF5252</color>
+    <color name="progress_gold">#DDA700</color>
+    <color name="deadline_label">#fa003f</color>
+    <color name="gray_light">#E0E0E0</color>
+    <color name="gray_track">#808080</color>
+</resources>

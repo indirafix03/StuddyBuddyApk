@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/layoutHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="24dp"
+        android:paddingTop="32dp"
+        android:paddingBottom="16dp">
+
+        <ImageView
+            android:id="@+id/btnBack"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/outline_arrow_back_ios_24"
+            android:contentDescription="Back"
+            app:tint="#000000" />
+
+        <TextView
+            android:id="@+id/txtHeaderTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add Course"
+            android:textColor="#000000"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="40dp"
+            app:cardBackgroundColor="#2C3E6B"
+            app:cardElevation="0dp"
+            app:strokeWidth="0dp"
+            app:shapeAppearanceOverlay="@style/TopCorner36Style">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ScrollView
+                    android:id="@+id/scrollViewForm"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_above="@+id/layoutButtons"
+                    android:fillViewport="true"
+                    android:paddingTop="20dp"
+                    android:paddingHorizontal="24dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/layoutInputMatkul"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="20dp"
+                            android:hint="Enter Course Name..."
+                            app:hintTextColor="#808080"
+                            android:textColorHint="#808080"
+                            app:boxBackgroundColor="#D9D9D9"
+                            app:boxStrokeWidth="0dp"
+                            app:boxStrokeWidthFocused="0dp"
+                            app:boxCornerRadiusTopStart="24dp"
+                            app:boxCornerRadiusTopEnd="24dp"
+                            app:boxCornerRadiusBottomStart="24dp"
+                            app:boxCornerRadiusBottomEnd="24dp">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/etNamaMK"
+                                android:layout_width="match_parent"
+                                android:layout_height="60dp"
+                                android:inputType="text"
+                                android:textColor="#2C3E6B"
+                                android:textStyle="bold"
+                                android:textSize="16sp" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Lecture Day"
+                            android:textColor="#FFFFFF"
+                            android:textSize="12sp"
+                            android:layout_marginBottom="8dp"/>
+
+                        <com.google.android.material.chip.ChipGroup
+                            android:id="@+id/chipGroupHari"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="20dp"
+                            app:singleSelection="true">
+
+                            <com.google.android.material.chip.Chip
+                                android:id="@+id/chipSenin"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Monday"
+                                android:checkable="true"
+                                app:chipBackgroundColor="@color/chip_bg_selector"
+                                android:textColor="@color/chip_text_selector"/>
+
+                            <com.google.android.material.chip.Chip
+                                android:id="@+id/chipSelasa"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Tuesday"
+                                android:checkable="true"
+                                app:chipBackgroundColor="@color/chip_bg_selector"
+                                android:textColor="@color/chip_text_selector"/>
+
+                            <com.google.android.material.chip.Chip
+                                android:id="@+id/chipRabu"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Wednesday"
+                                android:checkable="true"
+                                app:chipBackgroundColor="@color/chip_bg_selector"
+                                android:textColor="@color/chip_text_selector"/>
+
+                            <com.google.android.material.chip.Chip
+                                android:id="@+id/chipKamis"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Thursday"
+                                android:checkable="true"
+                                app:chipBackgroundColor="@color/chip_bg_selector"
+                                android:textColor="@color/chip_text_selector"/>
+
+                            <com.google.android.material.chip.Chip
+                                android:id="@+id/chipJumat"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Friday"
+                                android:checkable="true"
+                                app:chipBackgroundColor="@color/chip_bg_selector"
+                                android:textColor="@color/chip_text_selector"/>
+
+                            <com.google.android.material.chip.Chip
+                                android:id="@+id/chipSabtu"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Saturday"
+                                android:checkable="true"
+                                app:chipBackgroundColor="@color/chip_bg_selector"
+                                android:textColor="@color/chip_text_selector"/>
+
+                            <com.google.android.material.chip.Chip
+                                android:id="@+id/chipMinggu"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Sunday"
+                                android:checkable="true"
+                                app:chipBackgroundColor="@color/chip_bg_selector"
+                                android:textColor="@color/chip_text_selector"/>
+                        </com.google.android.material.chip.ChipGroup>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginBottom="20dp">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:layout_marginEnd="8dp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Start Time"
+                                    android:textColor="#FFFFFF"
+                                    android:textSize="12sp"
+                                    android:layout_marginBottom="6dp"/>
+
+                                <com.google.android.material.textfield.TextInputLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    app:boxBackgroundColor="#7A8BB2"
+                                    app:boxStrokeWidth="0dp"
+                                    app:boxCornerRadiusTopStart="12dp"
+                                    app:boxCornerRadiusTopEnd="12dp"
+                                    app:boxCornerRadiusBottomStart="12dp"
+                                    app:boxCornerRadiusBottomEnd="12dp">
+                                    <com.google.android.material.textfield.TextInputEditText
+                                        android:id="@+id/inputJamMulai"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:hint="Example: 09:00"
+                                        android:focusable="false"
+                                        android:clickable="true"
+                                        android:textColorHint="#66FFFFFF"
+                                        android:textColor="#FFFFFF"
+                                        android:textSize="14sp"/>
+                                </com.google.android.material.textfield.TextInputLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:layout_marginStart="8dp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="End Time"
+                                    android:textColor="#FFFFFF"
+                                    android:textSize="12sp"
+                                    android:layout_marginBottom="6dp"/>
+
+                                <com.google.android.material.textfield.TextInputLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    app:boxBackgroundColor="#7A8BB2"
+                                    app:boxStrokeWidth="0dp"
+                                    app:boxCornerRadiusTopStart="12dp"
+                                    app:boxCornerRadiusTopEnd="12dp"
+                                    app:boxCornerRadiusBottomStart="12dp"
+                                    app:boxCornerRadiusBottomEnd="12dp">
+                                    <com.google.android.material.textfield.TextInputEditText
+                                        android:id="@+id/inputJamSelesai"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:hint="Example: 12:00"
+                                        android:focusable="false"
+                                        android:clickable="true"
+                                        app:hintTextColor="#66FFFFFF"
+                                        android:textColorHint="#66FFFFFF"
+                                        android:textColor="#FFFFFF"
+                                        android:textSize="14sp"/>
+                                </com.google.android.material.textfield.TextInputLayout>
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Lecturer Name"
+                            android:textColor="#FFFFFF"
+                            android:textSize="12sp"
+                            android:layout_marginBottom="6dp"/>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="20dp"
+                            app:boxBackgroundColor="#7A8BB2"
+                            app:boxStrokeWidth="0dp"
+                            app:boxCornerRadiusTopStart="12dp"
+                            app:boxCornerRadiusTopEnd="12dp"
+                            app:boxCornerRadiusBottomStart="12dp"
+                            app:boxCornerRadiusBottomEnd="12dp">
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/inputNamaDosen"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="textPersonName"
+                                android:textColor="#FFFFFF"
+                                android:textSize="14sp"/>
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Room"
+                            android:textColor="#FFFFFF"
+                            android:textSize="12sp"
+                            android:layout_marginBottom="6dp"/>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="32dp"
+                            app:boxBackgroundColor="#7A8BB2"
+                            app:boxStrokeWidth="0dp"
+                            app:boxCornerRadiusTopStart="12dp"
+                            app:boxCornerRadiusTopEnd="12dp"
+                            app:boxCornerRadiusBottomStart="12dp"
+                            app:boxCornerRadiusBottomEnd="12dp">
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/inputRuangan"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="text"
+                                android:textColor="#FFFFFF"
+                                android:textSize="14sp"/>
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                    </LinearLayout>
+                </ScrollView>
+
+                <LinearLayout
+                    android:id="@+id/layoutButtons"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="24dp"
+                    android:paddingVertical="16dp"
+                    android:background="#2C3E6B">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnCancel"
+                        android:layout_width="0dp"
+                        android:layout_height="54dp"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="8dp"
+                        android:text="Cancel"
+                        android:textColor="#2C3E6B"
+                        android:textStyle="bold"
+                        app:backgroundTint="#E0E0E0"
+                        app:cornerRadius="27dp"/>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnSave"
+                        android:layout_width="0dp"
+                        android:layout_height="54dp"
+                        android:layout_weight="1"
+                        android:layout_marginStart="8dp"
+                        android:text="Save"
+                        android:textColor="#2C3E6B"
+                        android:textStyle="bold"
+                        app:backgroundTint="#E0E0E0"
+                        app:cornerRadius="27dp"/>
+                </LinearLayout>
+
+            </RelativeLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </RelativeLayout>
+</LinearLayout>

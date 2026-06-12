@@ -1,0 +1,19 @@
+package com.indira.studdybuddyapk.network;
+
+import retrofit2.Call;
+import retrofit2.http.Body;
+import retrofit2.http.Header;
+import retrofit2.http.Headers;
+import retrofit2.http.POST;
+import retrofit2.http.Query;
+
+public interface GeminiApiService {
+    @Headers({
+            "Content-Type: application/json"
+    })
+    @POST("v1beta/models/gemini-2.5-flash:generateContent")
+    Call<GeminiResponse> generateChecklist(
+            @Header("x-goog-api-key") String apiKey,
+            @Body GeminiRequest request
+    );
+}

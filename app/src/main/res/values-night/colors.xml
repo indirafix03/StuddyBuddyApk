@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- Main Backgrounds - Amoled Dark -->
+    <color name="background_main">#000000</color>
+    <color name="surface_main">#121212</color>
+
+    <!-- Text Colors -->
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#B0B0B0</color>
+    <color name="text_white">#FFFFFF</color>
+
+    <!-- Accent Colors -->
+    <color name="primary_brand">#2C3E6B</color>
+    <color name="urgent_red">#FF5252</color>
+    <color name="progress_gold">#FFD600</color>
+    <color name="deadline_label">#FF5252</color>
+    <color name="gray_light">#333333</color>
+    <color name="gray_track">#444444</color>
+</resources>
